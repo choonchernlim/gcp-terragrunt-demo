@@ -1,10 +1,19 @@
 # Terragrunt Demo
 
-This demo illustrates the following:
-* Performs `plan-all`, `apply-all` and `destroy-all` at root directory.
-* Creates a dependency by passing an output value from `modules/a` to `modules/b`.
-* Creates GCS buckets to store each module's state file.
+This demo illustrates the following:-
 
+* Performs `plan-all`, `apply-all` and `destroy-all` at root directory.
+* Creates a dependency by passing an output value from `parent` module to `child` module.
+* Creates a GCS bucket called "terragrunt-demo" to store each module's state file. It has the following directory structure:- 
+
+```
+terragrunt-demo                      
+└── modules                         
+    ├── child                       
+    │   └── terraform.tfstate       
+    └── parent                      
+        └── terraform.tfstate       
+```
 
 ## Terragrunt Installation
 
