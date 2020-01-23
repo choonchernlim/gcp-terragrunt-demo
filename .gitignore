@@ -1,0 +1,23 @@
+**/.terraform
+**/__pycache__
+**/.pytest_cache
+.idea
+*.tfstate*
+**/.idea
+.terraform
+backend.tf
+backend-config.hcl
+credentials.json
+key.json
+cloudbuild.yaml
+*.iml
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Kitchen files
+**/inspec.lock
+**/.kitchen
+**/kitchen.local.yml
+**/Gemfile.lock
