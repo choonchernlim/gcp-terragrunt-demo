@@ -1,13 +1,14 @@
-# Terragrunt Demo
+# GCP Terragrunt Demo
 
-This demo illustrates the following:-
+This simple demo illustrates the following use cases:-
 
-* Performs `plan-all`, `apply-all` and `destroy-all` at root directory.
-* Creates a dependency by passing an output value from `parent` module to `child` module.
-* Creates a GCS bucket called "terragrunt-demo" to store each module's state file. It has the following directory structure:- 
+* Provisions all modules recursively.
+* Passes common variables to all modules.
+* Creates a module dependency by passing an output value from `parent` module to `child` module.
+* Stores all module state files in a GCS bucket called `gcp-terragrunt-demo`. This GCS bucket has the following directory structure:- 
 
 ```
-terragrunt-demo                      
+gcp-terragrunt-demo                      
 └── modules                         
     ├── child                       
     │   └── terraform.tfstate       
@@ -15,36 +16,30 @@ terragrunt-demo
         └── terraform.tfstate       
 ```
 
-## Terragrunt Installation
+## Getting Started
 
-    # Get into ~/bin. If this dir doesn't exist, create one.
-    cd ~/bin/
+* [Install Terraform](https://learn.hashicorp.com/terraform/getting-started/install).
+    * After installation, run `terraform --version` to ensure it works.
 
-    # Download binary
-    wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.21.11/terragrunt_linux_amd64
+* [Install Terragrunt](https://terragrunt.gruntwork.io/docs/getting-started/install/).
+    * After installation, run `terragrunt --version` to ensure it works.
 
-    # Give execute permission
-    chmod +x terragrunt_linux_amd64
+* Go to [<ROOT>/terragrunt.hcl](terragrunt.hcl) and update the parameters in `locals { ... }` block.
 
-    # Rename file
-    mv terragrunt_linux_amd64 terragrunt
+* If you are running the code outside of GCP environment (ie: not in Cloud Shell, but from your IDE), run the `gloud` commands below to get authenticated first:- 
+    * `gcloud auth login` 
+    * `gcloud auth application-default login` 
+    * Note: Failure to do so causes Terragrunt to throw "Missing required GCS remote state configuration project" error.
 
-    # Test to see if command works
-    terragrunt --version
+* If the GCS bucket does not exist yet, run this once:-
+    * `terragrunt init`
+    * Note: Once the GCS bucket is created, there is no need to run this command again.
 
-* Create a GCS bucket directly in GCP called `terragrunt-demo`. The reason for this is it simplifies the Terragrunt setup a little bit.
+* To determine changes needed to be applied to the infrastructure:- 
+    * `terragrunt plan-all`
 
+* To provision the entire infrastructure by running each module and resolving any module dependencies:-
+    * `terragrunt apply-all`
 
-## Running the Code
-
-    # Go to root dir
-    cd ~/terragrunt-demo
-
-    # From root dir, recursively plan all modules
-    terragrunt plan-all
-
-    # From root dir, recursively apply all modules
-    echo "Y" | terragrunt apply-all
-
-    # From root dir, recursively destroy all modules
-    echo "Y" | terragrunt destroy-all
+* To deprovision the entire infrastructure:-
+    * `terragrunt destroy-all`
