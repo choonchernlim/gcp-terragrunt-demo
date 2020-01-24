@@ -24,7 +24,7 @@ gcp-terragrunt-demo
 * [Install Terragrunt](https://terragrunt.gruntwork.io/docs/getting-started/install/).
     * After installation, run `terragrunt --version` to ensure it works.
 
-* Go to [<ROOT>/terragrunt.hcl](terragrunt.hcl) and update the parameters in `locals { ... }` block.
+* Go to [\[ROOT_DIR\]/terragrunt.hcl](terragrunt.hcl) and update the parameters in `locals { ... }` block.
 
 * If you are running the code outside of GCP environment (ie: not in Cloud Shell, but from your IDE), run the `gloud` commands below to get authenticated first:- 
     * `gcloud auth login` 
