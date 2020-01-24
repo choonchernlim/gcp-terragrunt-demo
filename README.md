@@ -26,14 +26,14 @@ gcp-terragrunt-demo
 
 * Go to [\[ROOT_DIR\]/terragrunt.hcl](terragrunt.hcl) and update the parameters in `locals { ... }` block.
 
-* If you are running the code outside of GCP environment (ie: not in Cloud Shell, but from your IDE), run the `gloud` commands below to get authenticated first:- 
+* If you are running the code outside of GCP environment (ie: from your IDE instead of Cloud Shell), run the `gloud` commands below to get authenticated first:- 
     * `gcloud auth login` 
     * `gcloud auth application-default login` 
-    * Note: Failure to do so causes Terragrunt to throw "Missing required GCS remote state configuration project" error.
+    * *Note: Failure to do so causes Terragrunt to throw "Missing required GCS remote state configuration project" error.*
 
 * If the GCS bucket does not exist yet, run this once:-
     * `terragrunt init`
-    * Note: Once the GCS bucket is created, there is no need to run this command again.
+    * *Note: Once the GCS bucket is created, there is no need to run this command again.*
 
 * To determine changes needed to be applied to the infrastructure:- 
     * `terragrunt plan-all`
