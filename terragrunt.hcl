@@ -6,11 +6,11 @@ locals {
   bucket = "gcp-terragrunt-demo"
 
   # `project` and `location` are needed to create the bucket if it does not exist
-  project = "corebuild-10022019"
+  project = "my-project"
   location = "us-central1"
 
-  # this variable will be used by `parent` module
-  org_id = "852514890226"
+  # this variable will be used by `parent` module to create a folder under an org
+  org_id = "111111111111"
 }
 
 # creates GCS bucket for storing states
