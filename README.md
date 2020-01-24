@@ -18,11 +18,9 @@ gcp-terragrunt-demo
 
 ## Getting Started
 
-* [Install Terraform](https://learn.hashicorp.com/terraform/getting-started/install).
-    * After installation, run `terraform --version` to ensure it works.
+* [Install Terraform](https://learn.hashicorp.com/terraform/getting-started/install). After installation, run `terraform --version` to ensure it works.
 
-* [Install Terragrunt](https://terragrunt.gruntwork.io/docs/getting-started/install/).
-    * After installation, run `terragrunt --version` to ensure it works.
+* [Install Terragrunt](https://terragrunt.gruntwork.io/docs/getting-started/install/). After installation, run `terragrunt --version` to ensure it works.
 
 * Go to [\[ROOT_DIR\]/terragrunt.hcl](terragrunt.hcl) and update the parameters in `locals { ... }` block.
 
