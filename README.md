@@ -8,7 +8,7 @@ This simple demo illustrates the following use cases:-
 * Stores all module state files in a GCS bucket called `gcp-terragrunt-demo`. This GCS bucket has the following directory structure:- 
 
 ```
-gcp-terragrunt-demo                      
+gs://gcp-terragrunt-demo                      
 └── modules                         
     ├── child                       
     │   └── terraform.tfstate       
